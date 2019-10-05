@@ -1,0 +1,2 @@
+﻿
+exec uspPeople_GetAll
