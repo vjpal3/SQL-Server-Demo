@@ -22,5 +22,15 @@ namespace SqlDBDemo
 
             }
         }
+
+        public List<Person> GetAllPeople()
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionStrVal("SampleDB")))
+            {
+                return connection.Query<Person>("dbo.uspPeople_GetAll").ToList();
+
+            }
+
+        }
     }
 }

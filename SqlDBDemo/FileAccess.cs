@@ -19,13 +19,7 @@ namespace SqlDBDemo
                 people.Add(new Person { FirstName = names[0], LastName = names[1] });
             }
 
-            //foreach(var person in people)
-            //{
-            //    Console.WriteLine(person.FirstName + " " + person.LastName);
-            //}
-
             return people;
-
         }
     }
 }

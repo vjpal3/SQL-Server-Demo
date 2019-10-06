@@ -10,9 +10,13 @@ namespace SqlDBDemo
     {
         static void Main(string[] args)
         {
-
-            //List<Person> people = FileAccess.ReadFileData(@"e:\Vrishali\people.txt");
             new DataAccess().InsertPerson();
+
+            List<Person> people = new DataAccess().GetAllPeople();
+            foreach (var person in people)
+            {
+                Console.WriteLine(person.FirstName + " " + person.LastName);
+            }
         }
     }
 }
