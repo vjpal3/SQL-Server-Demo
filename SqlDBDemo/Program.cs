@@ -11,7 +11,8 @@ namespace SqlDBDemo
         static void Main(string[] args)
         {
 
-
+            //List<Person> people = FileAccess.ReadFileData(@"e:\Vrishali\people.txt");
+            new DataAccess().InsertPerson();
         }
     }
 }
