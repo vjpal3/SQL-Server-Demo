@@ -13,13 +13,11 @@ namespace SqlDBDemo
         public void InsertPerson()
         {
             List<Person> people = FileAccess.ReadFileData(@"e:\Vrishali\people.txt");
-            Console.WriteLine("***Here***");
+            
 
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionStrVal("SampleDB")))
             {
-                Console.WriteLine("***TTTHere***");
                 connection.Execute("dbo.uspPeople_InsertPerson @FirstName, @LastName", people);
-
             }
         }
 
@@ -28,9 +26,20 @@ namespace SqlDBDemo
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionStrVal("SampleDB")))
             {
                 return connection.Query<Person>("dbo.uspPeople_GetAll").ToList();
+            }
+
+        }
+
+        public List<Person> GetAllPeopleByLastName(string lastName)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.ConnectionStrVal("SampleDB")))
+            {
+                return connection.Query<Person>("dbo.uspPeople_GetAllByLastName @LastName", new { LastName = lastName }).ToList();
+               
 
             }
 
         }
+
     }
 }

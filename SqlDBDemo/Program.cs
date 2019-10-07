@@ -10,9 +10,12 @@ namespace SqlDBDemo
     {
         static void Main(string[] args)
         {
-            new DataAccess().InsertPerson();
+            //new DataAccess().InsertPerson();
 
-            List<Person> people = new DataAccess().GetAllPeople();
+            //List<Person> people = new DataAccess().GetAllPeople();
+
+            List<Person> people = new DataAccess().GetAllPeopleByLastName("Johnson");
+            
             foreach (var person in people)
             {
                 Console.WriteLine(person.FirstName + " " + person.LastName);
